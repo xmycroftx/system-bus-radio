@@ -15,7 +15,7 @@ mach_port_t clock_port;
 mach_timespec_t remain;
 
 static inline void square_am_signal(float time, float frequency) {
-    printf("Playing / %0.3f seconds / %4.0f Hzn", time, frequency);
+    printf("Playing / %0.3f seconds / %4.0f Hz\n", time, frequency);
     uint64_t period = NSEC_PER_SEC / frequency;
 
     uint64_t start = mach_absolute_time();
