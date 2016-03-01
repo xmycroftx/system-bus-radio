@@ -2,6 +2,12 @@
 // https://github.com/fulldecent/system-bus-radio
 // Copyright 2016 William Entriken
 
+
+/* Note: Included Super Mario Bros. theme song was found online at:
+http://wiki.mikrotik.com/wiki/Super_Mario_Theme
+annotated by user "IanH"
+ */
+
 #include <stdio.h>
 #include <emmintrin.h>
 #include <mach/mach_traps.h>
@@ -51,7 +57,7 @@ int main(int argc, char* argv[])
   if (argc == 2) {
     fp = fopen(argv[1], "r");
   } else {
-    puts("Supply file to read song from.");
+    printf("No song file given!\nUsage: %s file.song\n", argv[0]);
     exit(1);
   }
   char buffer[256];
@@ -76,6 +82,9 @@ int main(int argc, char* argv[])
       }
       printf("D: %d\n", d);
       square_am_signal(d / 1000.0, 0);
+    } else if (!strncmp(":end", buffer, strlen(":end"))) {
+      puts("End of song, repeating.");
+      rewind(fp);
     }
 	}
 }
