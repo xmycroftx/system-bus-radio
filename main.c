@@ -9,8 +9,6 @@
 #include <math.h>
 #include <string.h>
 
-
-#define am_delay(x) (square_am_signal(x, 0))
 __m128i reg;
 __m128i reg_zero;
 __m128i reg_one;
@@ -34,11 +32,6 @@ static inline void square_am_signal(float time, float frequency) {
     clock_sleep_trap(clock_port, TIME_ABSOLUTE, reset / NSEC_PER_SEC, reset % NSEC_PER_SEC, &remain);
 		start = reset;
 	}
-}
-
-int prefix(const char *pre, const char *str)
-{
-    return strncmp(pre, str, strlen(pre)) == 0;
 }
 
 int main(int argc, char* argv[])
@@ -68,8 +61,7 @@ int main(int argc, char* argv[])
       /* skip blank lines */
       continue;
     }
-
-    if (prefix(":beep", buffer)) {
+    if (!strncmp(":beep", buffer, strlen(":beep"))) {
       int t;
       int f;
       if(sscanf(buffer, ":beep frequency=%d length=%dms",  &f, &t) == 0) {
@@ -77,7 +69,7 @@ int main(int argc, char* argv[])
       }
       printf("F: %d, T: %d\n", f, t);
       square_am_signal(t / 1000.0, f);
-    } else if (prefix(":delay", buffer)) {
+    } else if (!strncmp(":delay", buffer, strlen(":delay"))) {
       int d;
       if (sscanf(buffer, ":delay %dms", &d) == 0) {
         continue;
@@ -85,23 +77,5 @@ int main(int argc, char* argv[])
       printf("D: %d\n", d);
       square_am_signal(d / 1000.0, 0);
     }
-    /* Super Mario Bros. Theme
-    square_am_signal(0.100, 660);
-    am_delay(0.150);
-    square_am_signal(0.100, 660);
-    am_delay(0.300);
-    square_am_signal(0.100, 660);
-    am_delay(0.300);
-    square_am_signal(0.100, 510);
-    am_delay(0.100);
-    square_am_signal(0.100, 660);
-    am_delay(0.300);
-    square_am_signal(0.100, 770);
-    am_delay(0.550);
-    square_am_signal(0.100, 380);
-    am_delay(0.575);*/
-
-
-
 	}
 }
