@@ -7,7 +7,10 @@
 #include <mach/mach_traps.h>
 #include <mach/mach_time.h>
 #include <math.h>
+#include <string.h>
 
+
+#define am_delay(x) (square_am_signal(x, 0))
 __m128i reg;
 __m128i reg_zero;
 __m128i reg_one;
@@ -33,7 +36,12 @@ static inline void square_am_signal(float time, float frequency) {
 	}
 }
 
-int main()
+int prefix(const char *pre, const char *str)
+{
+    return strncmp(pre, str, strlen(pre)) == 0;
+}
+
+int main(int argc, char* argv[])
 {
 	mach_timebase_info_data_t theTimeBaseInfo;
   mach_timebase_info(&theTimeBaseInfo);
@@ -46,33 +54,54 @@ int main()
 
 	reg_zero = _mm_set_epi32(0, 0, 0, 0);
 	reg_one = _mm_set_epi32(-1, -1, -1, -1);
-
+  FILE* fp;
+  if (argc == 2) {
+    fp = fopen(argv[1], "r");
+  } else {
+    puts("Supply file to read song from.");
+    exit(1);
+  }
+  char buffer[256];
 	while (1) {
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2093);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.790, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.790, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 3136);
-    square_am_signal(0.790, 3136);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2093);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.790, 2093);
+    fgets(buffer, 256 - 1, fp);
+    if (strlen(buffer) == 0) {
+      /* skip blank lines */
+      continue;
+    }
+
+    if (prefix(":beep", buffer)) {
+      int t;
+      int f;
+      if(sscanf(buffer, ":beep frequency=%d length=%dms",  &f, &t) == 0) {
+        continue;
+      }
+      printf("F: %d, T: %d\n", f, t);
+      square_am_signal(t / 1000.0, f);
+    } else if (prefix(":delay", buffer)) {
+      int d;
+      if (sscanf(buffer, ":delay %dms", &d) == 0) {
+        continue;
+      }
+      printf("D: %d\n", d);
+      square_am_signal(d / 1000.0, 0);
+    }
+    /* Super Mario Bros. Theme
+    square_am_signal(0.100, 660);
+    am_delay(0.150);
+    square_am_signal(0.100, 660);
+    am_delay(0.300);
+    square_am_signal(0.100, 660);
+    am_delay(0.300);
+    square_am_signal(0.100, 510);
+    am_delay(0.100);
+    square_am_signal(0.100, 660);
+    am_delay(0.300);
+    square_am_signal(0.100, 770);
+    am_delay(0.550);
+    square_am_signal(0.100, 380);
+    am_delay(0.575);*/
+
+
+
 	}
 }
