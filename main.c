@@ -17,12 +17,13 @@
 #endif
 
 #ifndef __MACH__
+#define TIME_ABSOLUTE CLOCK_REALTIME
 typedef struct timespec mach_timespec_t;
 typedef unsigned int mach_port_t;
 
 static inline uint64_t mach_absolute_time(void) {
     mach_timespec_t tp;
-    int res = clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
+    int res = clock_gettime(CLOCK_REALTIME, &tp);
     if (res < 0) {
         perror("clock_gettime");
         exit(1);
@@ -32,11 +33,12 @@ static inline uint64_t mach_absolute_time(void) {
     return result;
 }
 
-static inline void nanosleep_for(time_t sec, long nsec, mach_timespec_t *remain) {
+// non-conformant wrapper just for the purposes of this application
+static inline void clock_sleep_trap(mach_port_t clock_port, int sleep_type, time_t sec, long nsec, mach_timespec_t *remain) {
     mach_timespec_t req = { sec, nsec };
-    int res = nanosleep(&req, remain);
+    int res = clock_nanosleep(sleep_type, TIMER_ABSTIME, &req, remain);
     if (res < 0) {
-        perror("nanosleep");
+        perror("clock_nanosleep");
         exit(1);
     }
 }
@@ -62,11 +64,7 @@ static inline void square_am_signal(float time, float frequency) {
             _mm_stream_si128(&reg, reg_one);
             _mm_stream_si128(&reg, reg_zero);
         }
-#ifdef __MACH__
         clock_sleep_trap(clock_port, TIME_ABSOLUTE, reset / NSEC_PER_SEC, reset % NSEC_PER_SEC, &remain);
-#else
-        nanosleep_for((period / 2) / NSEC_PER_SEC, (period / 2) % NSEC_PER_SEC, &remain);
-#endif
         start = reset;
     }
 }
