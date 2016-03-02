@@ -20,7 +20,9 @@ And run it on an Apple MacBook Air (13-inch, Early 2015):
 
 Then use a Sony STR-K670P radio receiver with the included antenna and tune it to 1580 kHz on AM.
 
-You should hear the "Mary Had a Little Lamb" song playing repeatedly. Other equipment and tuning may work as well. On the equipment above, the author has achieved clear transmission over two meters of open air or one meter through drywall. Different results will be achievable with different equipment. Please send your results to sbr@phor.net
+You should hear the "Mary Had a Little Lamb" song playing repeatedly. Other equipment and tuning may work as well. On the equipment above, the author has achieved clear transmission over two meters of open air or one meter through drywall. Different results will be achievable with different equipment.
+
+Please see results for other hardware at [HARDWARE-INFO.md] and add your own or mail to sbr@phor.net
 
 Technical Explanation
 ------------------
