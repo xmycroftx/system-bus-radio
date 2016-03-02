@@ -23,6 +23,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Jeremy Zerfas          | MacBook Pro (15-inch, Mid 2012) 2.3   | Sony CFS-201 boom-box, internal antenna | Various AM channels   | Up to 6 feet                                                    |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Early 2008) 2.4 | Yamaha RX-V675, Loop antenna    | Various AM channels, `nanosleep` mod        | Up to 7 feet, definitely farther than Mid 2012 model w/ same rcvr |
 | Jeremy Zerfas          |  2.8 GHz Athlon II X2 240, Gigabyte GA-MA785GM-US2H, Antec FusionRemote 350 HTPC case | Yamaha RX-V675, Loop antenna | Various AM channels, [linux port][3] | Up to 6" from the processor|
+| Nipun Gunawardena      | MacBook Pro Retina (13-inch, Late 2013) | Onkyo CR305TX, Loop antenna   | 1610 kHz, `_mm_stream_si128`  | Audible, ?? inches                                              |
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
 [2]: https://github.com/EzoeRyou/system-bus-radio/blob/master/main.cpp
