@@ -24,6 +24,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Fe Yi                  | MacBook Pro (13-inch, Early 2015)     | TECSUN PL-310ET, internal antenna | 1580 kHz, `_mm_stream_si128`| ~10cm Above Keyboard                                            |
 | Ryou Ezoe              | Acer ASPIRE 5750, GNU/Linux           | Tecsun PL-310 fm/am Stereo World Band Dsp Receiver, internal antenna | 1440 kHz, [C++11 port][2] | 30 cm                          |
 | Yuval Adam             | MacBook Pro (13-inch, Mid-2010)       | HackRF, 125Mhz upconverter, random wire antenna | 1580 kHz, `_mm_stream_si128` | No discernible signal                            |
+| Kyohei Takahashi       | MacBook Pro (Retina, 13-inch, Late 2012) | KOIZUMI SAD-7701-R AM mode | AM band (550 - 1400 kHz) `_mm_stream_si128`   | 30cm, https://youtu.be/RJlOnoK5WpQ                |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Mid 2012) 2.3   | Sony CFS-201 boom-box, internal antenna | Various AM channels   | Up to 6 feet                                                    |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Early 2008) 2.4 | Yamaha RX-V675, Loop antenna    | Various AM channels, `nanosleep` mod        | Up to 7 feet, definitely farther than Mid 2012 model w/ same rcvr |
 | Jeremy Zerfas          |  2.8 GHz Athlon II X2 240, Gigabyte GA-MA785GM-US2H, Antec FusionRemote 350 HTPC case | Yamaha RX-V675, Loop antenna | Various AM channels, [linux port][3] | Up to 6" from the processor|
