@@ -10,7 +10,7 @@ Publicly available documents already discuss exfiltration from secured systems u
 
 How to Use It
 ------------------
-Compile the problem using:
+Compile the program using:
 
     gcc main.c -Wall -O2 -o main
 
