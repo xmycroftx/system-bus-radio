@@ -23,6 +23,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Tomi Salmi             | Mac mini (Late 2014)                  | Sharp stereo cassette recorder WQ-T282H(GR), tele antenna | 1580 kHz  | Few inches, Audible, Noisy                                |
 | Fe Yi                  | MacBook Pro (13-inch, Early 2015)     | TECSUN PL-310ET, internal antenna | 1580 kHz, `_mm_stream_si128`| ~10cm Above Keyboard                                            |
 | Ryou Ezoe              | Acer ASPIRE 5750, GNU/Linux           | Tecsun PL-310 fm/am Stereo World Band Dsp Receiver, internal antenna | 1440 kHz, [C++11 port][2] | 30 cm                          |
+| Yuval Adam             | MacBook Pro (13-inch, Mid-2010)       | HackRF, 125Mhz upconverter, random wire antenna | 1580 kHz, `_mm_stream_si128` | No discernible signal                            |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Mid 2012) 2.3   | Sony CFS-201 boom-box, internal antenna | Various AM channels   | Up to 6 feet                                                    |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Early 2008) 2.4 | Yamaha RX-V675, Loop antenna    | Various AM channels, `nanosleep` mod        | Up to 7 feet, definitely farther than Mid 2012 model w/ same rcvr |
 | Jeremy Zerfas          |  2.8 GHz Athlon II X2 240, Gigabyte GA-MA785GM-US2H, Antec FusionRemote 350 HTPC case | Yamaha RX-V675, Loop antenna | Various AM channels, [linux port][3] | Up to 6" from the processor|
@@ -31,7 +32,6 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Yuji Fujita            | Thinkpad X200                          | Sony ICF-SW100                 | 1363Khz, [linux port][1]      | 0.5m https://youtu.be/li9hHM4NkWA                               |
 | Redgar Nord            | HP ProBook 4340s, Linux               | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | 6-7", very orientation dependent                                |
 | Redgar Nord            | RaspberryPi, Linux                     | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | No signal at all                                               |
-
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
 [2]: https://github.com/EzoeRyou/system-bus-radio/blob/master/main.cpp
