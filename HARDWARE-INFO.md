@@ -16,5 +16,6 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Chris                  | ??? running Linux                  | Icom IC-R10, ??? antenna        | Busy loop, [linux port][1]    | Audible, noisy, not sure distance https://goo.gl/iAkOWV         |
 | João Ventura           | MacBook Pro (15-inch, Late 2013)   | Tech Fuzzion, tele antenna      | 1600 kHz, `_mm_stream_si128`  | Few inches https://youtu.be/oXAeGZaka7o                         |
 | Elvis Pfutzenreuter    | MacBook (12-inch, Early 2015)      | Sony ICF-SW11, internal antenna | 1580 kHz, `_mm_stream_si128`  | Up to 2m, recommends turning off mains & light                  |
+| somini                 | Asus X201E, Linux                  | Clock radio, internal antenna   | 1580 kHz, `_mm_stream_si128`  | A few inches https://youtu.be/Nroc2BtO6NU                       |
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
