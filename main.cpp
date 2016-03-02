@@ -8,6 +8,33 @@
 #include <chrono>
 #include <thread>
 #include <atomic>
+#include <mutex>
+#include <condition_variable>
+
+std::mutex m ;
+std::condition_variable cv ;
+std::chrono::high_resolution_clock::time_point mid ;
+std::chrono::high_resolution_clock::time_point reset ;
+
+
+void boost_song()
+{
+    using namespace std::chrono ;
+
+    while( true )
+    {
+        std::unique_lock<std::mutex> lk{m} ;
+        cv.wait( lk ) ;
+
+        std::atomic<unsigned> x{0} ;
+        while( high_resolution_clock::now() < mid )
+        {
+            ++x ;
+        }
+        std::this_thread::sleep_until( reset ) ;
+        
+    }
+}
 
 void square_am_signal(float time, float frequency)
 {
@@ -27,13 +54,11 @@ void square_am_signal(float time, float frequency)
 
     while (high_resolution_clock::now() < end)
     {
-        auto mid = start + period / 2 ;
+        mid = start + period / 2 ;
         auto reset = start + period ;
-        while (high_resolution_clock::now() < mid)
-        {
-            std::atomic<unsigned> x{0} ;
-            ++x ; 
-        }
+        std::atomic<unsigned> x{0} ;
+
+        cv.notify_all() ;
         std::this_thread::sleep_until( reset ) ;
         start = reset;
     }
@@ -41,6 +66,13 @@ void square_am_signal(float time, float frequency)
 
 int main()
 {
+
+    for ( unsigned i = 0 ; i < 8 ; ++i )
+    {
+        std::thread t( boost_song ) ;
+        t.detach() ;
+    }
+
     while (1)
     {
         square_am_signal(0.400, 2673);
