@@ -19,5 +19,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | somini                 | Asus X201E, Linux                  | Clock radio, internal antenna   | 1580 kHz, `_mm_stream_si128`  | A few inches https://youtu.be/Nroc2BtO6NU                       |
 | janka102               | MacBook Pro (15-inch, Early 2011)  | iHome iP90, included AM antenna | 1580 kHz, `_mm_stream_si128`  | Several inches https://youtu.be/qN9D3bxkbXk                     |
 | Ryan Faerman    | MacBook Air (11-inch, Previous generation)      | Grundid Traveler 2 Digital, internal antenna | 1600 kHz  | ~6-8 inches                  |
+| Ryou Ezoe              | Acer ASPIRE 5750, GNU/Linux        | Tecsun PL-310 fm/am Stereo World Band Dsp Receiver, internal antenna | 1440 kHz, [C++11 port][2] | 30 cm
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
+[2]: https://github.com/EzoeRyou/system-bus-radio/blob/master/main.cpp
