@@ -32,7 +32,6 @@ void boost_song()
             ++x ;
         }
         std::this_thread::sleep_until( reset ) ;
-        
     }
 }
 
@@ -55,8 +54,7 @@ void square_am_signal(float time, float frequency)
     while (high_resolution_clock::now() < end)
     {
         mid = start + period / 2 ;
-        auto reset = start + period ;
-        std::atomic<unsigned> x{0} ;
+        reset = start + period ;
 
         cv.notify_all() ;
         std::this_thread::sleep_until( reset ) ;
