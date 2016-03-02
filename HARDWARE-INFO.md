@@ -32,6 +32,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Yuji Fujita            | Thinkpad X200                          | Sony ICF-SW100                 | 1363Khz, [linux port][1]      | 0.5m https://youtu.be/li9hHM4NkWA                               |
 | Redgar Nord            | HP ProBook 4340s, Linux               | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | 6-7", very orientation dependent                                |
 | Redgar Nord            | RaspberryPi, Linux                     | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | No signal at all                                               |
+| Erin Pinheiro          | Acer Aspire E1-572-6 BR691  | Generic AM radio, retractable antenna | ~1590 kHz, [linux port][12]   | Slightly noisy result, 10-20cm - `https://dl.dropboxusercontent.com/u/9435923/code/audio_2016-03-02_18-24-30.ogg`
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
 [2]: https://github.com/EzoeRyou/system-bus-radio/blob/master/main.cpp
