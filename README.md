@@ -88,3 +88,8 @@ Notes on high precision time APIs for Mac:
   * msleep() https://developer.apple.com/library/mac/documentation/Darwin/Conceptual/KernelProgramming/services/services.html
     * time/timer.c /  http://lxr.free-electrons.com/source/kernel/time/timer.c#L1673
   * kern/clock.h https://opensource.apple.com/source/xnu/xnu-1456.1.26/osfmk/kern/clock.h
+
+Press coverage
+
+ * http://hardware.slashdot.org/story/16/03/01/1727226/microcasting-color-tv-by-abusing-a-wi-fi-chip
+ * http://news.softpedia.com/news/emitting-radio-waves-from-a-computer-with-no-radio-transmitting-hardware-501260.shtml
