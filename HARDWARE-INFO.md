@@ -4,8 +4,6 @@ This file details specific results people are experiencing with different hardwa
 
 Note: Thank you for testing this out! Are you using an antenna? At the beginning, I placed the antenna directly on top of the number 4 key and that worked best. It was a round antenna. Then once I knew it works I moved the antenna back. Moving it back reduced the number of frequencies that it worked on, and eventually only that one (1580 kHz) worked. Different hardware will certainly have different frequency response. Here are some results that have been sent in by readers. Please mail sbr@phor.net with your results or [edit this file directly ](https://github.com/fulldecent/system-bus-radio/edit/master/HARDWARE-INFO.md) and create a pull request.
 
-
-
 | Tester                 | Transmitter                           | Receiver                        | Settings                      | Result                                                          |
 | ---------------------- | ------------------------------------- | ------------------------------- | ----------------------------- | --------------------------------------------------------------- |
 | William Entriken       | MacBook Air (13-inch, Early 2015)     | Sony STR-K670P, stock antenna   | 1580 kHz, `_mm_stream_si128`  | 2m open air, 1m thru drywall https://youtu.be/caGPmyMLYUI       |
@@ -25,6 +23,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Ryou Ezoe              | Acer ASPIRE 5750, GNU/Linux           | Tecsun PL-310 fm/am Stereo World Band Dsp Receiver, internal antenna | 1440 kHz, [C++11 port][2] | 30 cm                          |
 | Yuval Adam             | MacBook Pro (13-inch, Mid-2010)       | HackRF, 125Mhz upconverter, random wire antenna | 1580 kHz, `_mm_stream_si128` | No discernible signal                            |
 | Kyohei Takahashi       | MacBook Pro (Retina, 13-inch, Late 2012) | KOIZUMI SAD-7701-R AM mode | AM band (550 - 1400 kHz) `_mm_stream_si128`   | 30cm, https://youtu.be/RJlOnoK5WpQ                |
+| David Haberthür        | MacBook Pro "Core i7" 2.4 15" Late 2011 | Sony CFD-S38L              | 1584 kHz (1580 not available) | Some cm                                                            |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Mid 2012) 2.3   | Sony CFS-201 boom-box, internal antenna | Various AM channels   | Up to 6 feet                                                    |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Early 2008) 2.4 | Yamaha RX-V675, Loop antenna    | Various AM channels, `nanosleep` mod        | Up to 7 feet, definitely farther than Mid 2012 model w/ same rcvr |
 | Jeremy Zerfas          |  2.8 GHz Athlon II X2 240, Gigabyte GA-MA785GM-US2H, Antec FusionRemote 350 HTPC case | Yamaha RX-V675, Loop antenna | Various AM channels, [linux port][3] | Up to 6" from the processor|
