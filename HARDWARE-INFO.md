@@ -28,8 +28,11 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Nipun Gunawardena      | MacBook Pro Retina (13-inch, Late 2013) | Onkyo CR305TX, Loop antenna   | 1610 kHz, `_mm_stream_si128`  | Audible, ?? inches                                              |
 | 魚田雅彦                | MacBook Pro 2.8GHz i7 15-inch Mid 2014 | ???, no antenna                | 1300 kHz & 900 kHz, `_mm_stream_si128` | 6 inches, https://twitter.com/muota_here/status/704924596802342913 |
 | Yuji Fujita            | Thinkpad X200                          | Sony ICF-SW100                 | 1363Khz, [linux port][1]      | 0.5m https://youtu.be/li9hHM4NkWA                               |
+| Redgar Nord            | HP ProBook 4340s, Linux               | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | 6-7", very orientation dependent                                |
+| Redgar Nord            | RaspberryPi, Linux                     | Sharp radio, whip antenna       | ~1590 kHz, [linux port][12]   | No signal at all                                               |
 
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
 [2]: https://github.com/EzoeRyou/system-bus-radio/blob/master/main.cpp
 [3]: https://github.com/fulldecent/system-bus-radio/pull/3
+[4]: https://github.com/fulldecent/system-bus-radio/pull/12
