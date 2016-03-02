@@ -6,13 +6,14 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 
 
 
-| Tester                 | Transmitter                        | Receiver                        | Settings                      | Result                                                    |
-| ---------------------- | ---------------------------------- | ------------------------------- | ----------------------------- | --------------------------------------------------------- |
-| William Entriken       | MacBook Air (13-inch, Early 2015)  | Sony STR-K670P, stock antenna   | 1580 kHz, `_mm_stream_si128`  | 2m open air, 1m thru drywall https://youtu.be/caGPmyMLYUI |
-| Scott Buchanan         | MacBook Pro Retina 15", early 2013 | N/A                             | N/A                           | Audible sound from computer https://goo.gl/ll3PxH         |
-| Steele                 | MacBook Air (13-inch, Mid-2013)    | Onkyo HT-R550, JVC Loop antenna | 1580 kHz, `_mm_stream_si128`  | Very clear at 2", loud static farther away                |
-| Chris Smolinski        | MBP (??-inch, 2010)                | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                       |
-| Chris Smolinski        | iMac (??-inch, 2015)               | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                       |
-| Chris                  | ??? running Linux                  | Icom IC-R10, ??? antenna        | Busy loop, [linux port][1]    | Audible, noisy, not sure distance https://goo.gl/iAkOWV   |
+| Tester                 | Transmitter                        | Receiver                        | Settings                      | Result                                                          |
+| ---------------------- | ---------------------------------- | ------------------------------- | ----------------------------- | --------------------------------------------------------------- |
+| William Entriken       | MacBook Air (13-inch, Early 2015)  | Sony STR-K670P, stock antenna   | 1580 kHz, `_mm_stream_si128`  | 2m open air, 1m thru drywall https://youtu.be/caGPmyMLYUI       |
+| Scott Buchanan         | MacBook Pro Retina 15", early 2013 | N/A                             | N/A                           | Audible sound from computer https://goo.gl/ll3PxH               |
+| Steele                 | MacBook Air (13-inch, Mid-2013)    | Onkyo HT-R550, JVC Loop antenna | 1580 kHz, `_mm_stream_si128`  | Very clear at 2", loud static farther away                      |
+| Chris Smolinski        | MBP (??-inch, 2010)                | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                             |
+| Chris Smolinski        | iMac (??-inch, 2015)               | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                             |
+| Chris                  | ??? running Linux                  | Icom IC-R10, ??? antenna        | Busy loop, [linux port][1]    | Audible, noisy, not sure distance https://goo.gl/iAkOWV         |
+| João Ventura           | MacBook Pro (15-inch, Late 2013)   | Tech Fuzzion, tele antenna      | 1600 kHz, `_mm_stream_si128`  | Few inches https://youtu.be/oXAeGZaka7o                         |
 
 [1]: https://github.com/anfractuosity/system-bus-radio/blob/master/main.c
