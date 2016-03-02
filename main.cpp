@@ -65,7 +65,7 @@ void square_am_signal(float time, float frequency)
 int main()
 {
 
-    for ( unsigned i = 0 ; i < 8 ; ++i )
+    for ( unsigned i = 0 ; i < std::thread::hardware_concurrency() ; ++i )
     {
         std::thread t( boost_song ) ;
         t.detach() ;
