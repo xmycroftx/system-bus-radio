@@ -20,6 +20,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | janka102               | MacBook Pro (15-inch, Early 2011)     | iHome iP90, included AM antenna | 1580 kHz, `_mm_stream_si128`  | Several inches https://youtu.be/qN9D3bxkbXk                     |
 | Ryan Faerman           | MacBook Air (11-inch, 2014)           | Grundid Traveler 2 Digital, internal antenna | 1600 kHz         | ~6-8 inches                                                     |
 | Tomi Salmi             | Mac mini (Late 2014)                  | Sharp stereo cassette recorder WQ-T282H(GR), tele antenna | 1580 kHz  | Few inches, Audible, Noisy                                |
+| Fe Yi                  | MacBook Pro (13-inch, Early 2015)     | TECSUN PL-310ET, internal antenna | 1580 kHz, `_mm_stream_si128`| ~10cm Above Keyboard                                            |
 | Ryou Ezoe              | Acer ASPIRE 5750, GNU/Linux           | Tecsun PL-310 fm/am Stereo World Band Dsp Receiver, internal antenna | 1440 kHz, [C++11 port][2] | 30 cm                          |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Mid 2012) 2.3   | Sony CFS-201 boom-box, internal antenna | Various AM channels   | Up to 6 feet                                                    |
 | Jeremy Zerfas          | MacBook Pro (15-inch, Early 2008) 2.4 | Yamaha RX-V675, Loop antenna    | Various AM channels, `nanosleep` mod        | Up to 7 feet, definitely farther than Mid 2012 model w/ same rcvr |
