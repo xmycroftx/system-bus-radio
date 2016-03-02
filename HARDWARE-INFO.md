@@ -13,7 +13,7 @@ Note: Thank you for testing this out! Are you using an antenna? At the beginning
 | Samuel Steele          | MacBook Air (13-inch, Mid-2013)       | Onkyo HT-R550, JVC Loop antenna | 1580 kHz, `_mm_stream_si128`  | Very clear at 2", only noise past 6"                            |
 | Chris Smolinski        | MBP (??-inch, 2010)                   | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                             |
 | Chris Smolinski        | iMac (??-inch, 2015)                  | netSDR, ??? antenna             | AM band, `_mm_stream_si128`   | No signal found anywhere on AM band                             |
-| Chris                  | ??? running Linux                     | Icom IC-R10, ??? antenna        | Busy loop, [linux port][1]    | Audible, noisy, not sure distance https://goo.gl/iAkOWV         |
+| Chris                  | HP ENVY 15-j142na (i7 version), Linux | Icom IC-R10, ??? antenna        | Busy loop, [linux port][1]    | Audible, noisy, not sure distance https://youtu.be/TXkh1ANSFGw  |
 | João Ventura           | MacBook Pro (15-inch, Late 2013)      | Tech Fuzzion, tele antenna      | 1600 kHz, `_mm_stream_si128`  | Few inches https://youtu.be/oXAeGZaka7o                         |
 | Elvis Pfutzenreuter    | MacBook (12-inch, Early 2015)         | Sony ICF-SW11, internal antenna | 1580 kHz, `_mm_stream_si128`  | Up to 2m, recommends turning off mains & light                  |
 | somini                 | Asus X201E, Linux                     | Clock radio, internal antenna   | 1580 kHz, `_mm_stream_si128`  | A few inches https://youtu.be/Nroc2BtO6NU                       |
