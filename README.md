@@ -39,6 +39,8 @@ By trial and error, the above frequency was found to be ideal for that equipment
 The actual emissions are caused by the `_mm_stream_si128` instruction that writes through to a memory address. Inspiration for using this instruction was provided in:
 
 > Guri, M., Kachlon, A., Hasson, O., Kedma, G., Mirsky, Y. and Elovici, Y., 2015. GSMem: data exfiltration from air-gapped computers over GSM frequencies. In 24th USENIX Security Symposium (USENIX Security 15) (pp. 849-864).
+>
+> https://www.usenix.org/node/190937
 
 Please note that replacing `_mm_stream_si128` with a simple `x++;` will work too. My experience has been that  `_mm_stream_si128` produces a stronger signal. There may be other ideas that work even better, and it would be nice to improve this to be more portable (not require SSE extensions).
 
