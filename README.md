@@ -10,13 +10,9 @@ Publicly available documents already discuss exfiltration from secured systems u
 
 How to Use It
 ------------------
-Compile the program using make:
+Enter the `Using _mm_stream_si128` folder and compile using make. (There are also other flavors you can `make` and try in different folders!)
 
     make
-
-And run it on an Apple MacBook Air (13-inch, Early 2015):
-
-    ./main
 
 Then use a Sony STR-K670P radio receiver with the included antenna and tune it to 1580 kHz on AM.
 
