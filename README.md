@@ -10,9 +10,9 @@ Publicly available documents already discuss exfiltration from secured systems u
 
 How to Use It
 ------------------
-Compile the program using:
+Compile the program using make:
 
-    gcc main.c -Wall -O2 -o main
+    make
 
 And run it on an Apple MacBook Air (13-inch, Early 2015):
 
