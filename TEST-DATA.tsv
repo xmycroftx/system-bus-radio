@@ -27,3 +27,4 @@ Date	Tester	Transmitter	Receiver	Software	Frequency	Result	Recording
 2016-03-02	Redgar Nord	RaspberryPi, Linux	Sharp radio, whip antenna	PR #12	~1590 kHz	No signal at all	
 2016-03-02	Erin Pinheiro	Acer Aspire E1-572-6 BR691	Generic AM radio, retractable antenna	PR #12	~1590 kHz	10-20cm Slightly noisy	https://dl.dropboxusercontent.com/u/9435923/code/audio_2016-03-02_18-24-30.ogg
 2016-03-02	Trevor Summerfield	MacBook Pro (Retina, 15-inch, Mid 2015)	Grundig G8 Traveler II Digital, Internal AM Antenna	_mm_stream_si128	1580 kHz	8” above keyboard 50dbu signal, 0db SNR, audible	
+2016-03-05	Alessio Gerace	MacBookPro Retina (13-inch, 2014)	Majestic TT34CD/TP/USB	_mm_stream_si128	~1610 kH	10/30 cm	
