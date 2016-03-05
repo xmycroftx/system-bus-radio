@@ -20,7 +20,7 @@ Date	Tester	Transmitter	Receiver	Software	Frequency	Result	Recording
 2016-03-02	Jeremy Zerfas	MacBook Pro (15-inch, Mid 2012) 2.3	Sony CFS-201 boom-box, internal antenna	_mm_stream_si128	Various AM channels	6'	
 2016-03-02	Jeremy Zerfas	MacBook Pro (15-inch, Early 2008) 2.4	Yamaha RX-V675, Loop antenna	nanosleep mod	Various AM channels	7', definitely farther than Mid 2012 model w/ same rcvr	
 2016-03-02	Jeremy Zerfas	Athlon II X2 240, Gigabyte GA-MA785GM-US2H, Antec FusionRemote 350	Yamaha RX-V675, Loop antenna	PR #12	Various AM channels	"6"" from the processor"	
-2016-03-02	Nipun Gunawardena	MacBook Pro Retina (13-inch, Late 2013)	Onkyo CR305TX, Loop antenna	_mm_stream_si128	1610 kHz	?m audible	
+2016-03-02	Nipun Gunawardena	MacBook Pro Retina (13-inch, Late 2013)	Onkyo CR305TX, Loop antenna	_mm_stream_si128	1610 kHz	85cm	Other frequencies also usable when very close
 2016-03-02	Masahiko Uota	MacBook Pro 2.8GHz i7 15-inch Mid 2014	Sony ICF-T46, no antenna	_mm_stream_si128	1300 kHz, 900 kHz	6 inches	https://twitter.com/muota_here/status/704924596802342913
 2016-03-02	Yuji Fujita	Thinkpad X200	Sony ICF-SW100	PR #12	1363 kHz	0.5m	https://youtu.be/li9hHM4NkWA
 2016-03-02	Redgar Nord	HP ProBook 4340s, Linux	Sharp radio, whip antenna	PR #12	~1590 kHz	"6-7"", very orientation dependent"	
