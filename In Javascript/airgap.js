@@ -29,30 +29,22 @@ function square_am_signal(time,freq) {
 }
 
 function start() {
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2093);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.790, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.790, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 3136);
-    square_am_signal(0.790, 3136);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2093);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.400, 2673);
-    square_am_signal(0.400, 2349);
-    square_am_signal(0.790, 2093);
+	var song = document.getElementById("tones").value.split(":");
+	var length = song.length;
+	var i = 1, line, time, freq;
+	while (1 <= length) {
+		line = song[i].split(" ");
+		if (line[0] == "beep") {
+			freq = +line[0].split("=")[1];
+			time = +line[2].split("=")[1].slice(0,-1);
+			square_am_signal(time, freq);
+		}
+		if (line[0] == "delay") {
+			// delay
+		}
+		if (song[i] == "end") {
+			i = 1;
+		}
+		i++;
+	}
 }
