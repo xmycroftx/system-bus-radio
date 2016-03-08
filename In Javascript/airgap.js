@@ -7,25 +7,25 @@ function now() {
 }
 
 var NSEC_PER_SEC = 1000000000;
-var register = 3.1415
+var register = 3.1415;
 
 function square_am_signal(time,freq) {
-    document.getElementById('logs').value += "Playing / "+time+" seconds / "+freq+"Hz\n";
-    var period = NSEC_PER_SEC/freq;
-    var start = now();
-    var end = now()+time*NSEC_PER_SEC;
-    while (now() < end) {
-        var mid = start+period/2;
-        var reset = start+period;
-        while (now()<mid) {
-            for (i = 0; i < 100; i++) {
-                register = 1 - Math.log(register) / 1.7193
-            }
-        }
-        while(now() < reset){
-        }
-        start = reset
-    }
+	document.getElementById('logs').value += "Playing / "+time+" seconds / "+freq+"Hz\n";
+	var period = NSEC_PER_SEC/freq;
+	var start = now();
+	var end = now()+time*NSEC_PER_SEC;
+	while (now() < end) {
+		var mid = start+period/2;
+		var reset = start+period;
+		while (now()<mid) {
+			for (var i = 0; i < 100; i++) {
+				register = 1 - Math.log(register) / 1.7193;
+			}
+		}
+		while(now() < reset){
+		}
+		start = reset;
+	}
 }
 
 function start() {
