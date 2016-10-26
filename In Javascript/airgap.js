@@ -28,23 +28,18 @@ function square_am_signal(time, freq) {
 }
 
 function start() {
-	var song = document.getElementById("tones").value.split(":");
+	var song = document.getElementById("tones").value.split("\n");
 	var length = song.length;
-	var i = 1,
-		line, time, freq;
-	while (1 <= length) {
+	var line, time, freq;
+	for (var i = 0; i < length; i++) {
 		line = song[i].split(" ");
-		if (line[0] == "beep") {
-			freq = +line[0].split("=")[1];
-			time = +line[2].split("=")[1].slice(0, -1);
-			square_am_signal(time, freq);
-		}
-		if (line[0] == "delay") {
+		if (line[1] == "0") {
 			// delay
 		}
-		if (song[i] == "end") {
-			i = 1;
+		else {
+			freq = +line[1];
+			time = +line[0];
+			square_am_signal(time, freq);
 		}
-		i++;
 	}
 }
