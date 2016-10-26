@@ -98,3 +98,14 @@ input, textarea, keygen, select, button, isindex {
     outline:none;
     resize: none;
 }
+a
+{
+    color: white;
+    font-weight:bold;
+    background-color: rgba(220, 220, 220, 0.35);
+    text-decoration:none;
+}
+a:hover
+{
+    background-color: rgba(240, 240, 240, 0.52);
+}
