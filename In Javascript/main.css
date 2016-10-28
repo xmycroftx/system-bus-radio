@@ -21,20 +21,6 @@ body {
     color: white;
 }
 
-.data td {
-    border: 1px solid black;
-    border-bottom: 0px;
-    border-right: 0px;
-}
-
-.data td:last-child {
-    border-right: 1px solid black;
-}
-
-.data tr:last-child td {
-    border-bottom: 1px solid black;
-}
-
 a.button,
 input.button {
     cursor: pointer;
