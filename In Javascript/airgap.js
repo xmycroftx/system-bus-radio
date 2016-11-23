@@ -8,7 +8,6 @@ function now() {
 
 var NSEC_PER_SEC = 1000000000;
 var register = 3.1415;
-var logs = document.getElementById('logs');
 
 function square_am_signal(time, freq) {
 	window.logs.value += "\nPlaying / " + time + " seconds / " + freq + "Hz";
@@ -29,6 +28,7 @@ function square_am_signal(time, freq) {
 }
 
 function start() {
+	var logs = document.getElementById('logs');
 	var song = document.getElementById("tones").value.split("\n");
 	var length = song.length;
 	var line, time, freq;
