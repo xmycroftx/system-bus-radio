@@ -11,7 +11,7 @@ function now() {
 var NSEC_PER_SEC = 1000000000;
 var register = 3.1415;
 
-function square_am_signal(time, freq) {
+function square_am_signal(time, freq) { // This funcion generates the radio waves
 	postMessage("\nPlaying / " + time + " seconds / " + freq + "Hz");
 	var period = NSEC_PER_SEC / freq;
 	var start = now();
@@ -29,7 +29,7 @@ function square_am_signal(time, freq) {
 	}
 }
 
-function play(song) {
+function play(song) { // Parse song data, and call on required scripts to run it
 	song = song.split("\n");
 	var length = song.length;
 	var line, time, freq;
@@ -48,13 +48,13 @@ function play(song) {
 	close(); // Close Web Worker
 }
 
-function pause(time) {
+function pause(time) { // A useless function to run when there is no noise to play
 	postMessage("\nPaused / " + time*.001 + " seconds");
 	var dt = new Date();
 	while ((new Date()) - dt <= time) { /* Do nothing */ }
 }
 
-onmessage = function(event) {
+onmessage = function(event) { // Recieve song data from main page
 	var data = event.data;
 	play(data);
 };

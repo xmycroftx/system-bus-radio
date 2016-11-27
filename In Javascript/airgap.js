@@ -1,7 +1,9 @@
-var player;
+var player; // Define "player" var to make my code linter happy
 
-function start() {
-	var logs = document.getElementById('logs');
+function start() { // Start Web Worker & send song data to player
+	var logs = document.getElementById('logs'); // Define log element
+
+	// Create Web Worker if it doesn't already exist
 	if (window.Worker && typeof(player) == "undefined") {
 		var player = new Worker("worker.js");
 		window.player = player; // Make variable Global
@@ -9,11 +11,13 @@ function start() {
 			var data = event.data;
 			window.logs.value += data;
 		};
+
+		// Send song data to player
 		var song = document.getElementById("tones").innerHTML;
 		player.postMessage(song);
 	}
 }
 
-function end() {
+function end() { // Stops the Web Worker
 	player.terminate();
 }
