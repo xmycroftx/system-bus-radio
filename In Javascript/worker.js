@@ -2,6 +2,8 @@
 //As well as Jordan Harband for the nodejs simd library
 //Tested to be working on Chrome at 1560khz
 
+var window = self; // Create "window" object
+
 function now() {
 	return window.performance.now() * 1000000;
 }
@@ -10,7 +12,7 @@ var NSEC_PER_SEC = 1000000000;
 var register = 3.1415;
 
 function square_am_signal(time, freq) {
-	window.logs.value += "\nPlaying / " + time + " seconds / " + freq + "Hz";
+	postMessage("\nPlaying / " + time + " seconds / " + freq + "Hz");
 	var period = NSEC_PER_SEC / freq;
 	var start = now();
 	var end = now() + time * NSEC_PER_SEC;
@@ -27,9 +29,8 @@ function square_am_signal(time, freq) {
 	}
 }
 
-function start() {
-	var logs = document.getElementById('logs');
-	var song = document.getElementById("tones").value.split("\n");
+function play(song) {
+	song = song.split("\n");
 	var length = song.length;
 	var line, time, freq;
 	for (var i = 0; i < length; i++) {
@@ -43,10 +44,17 @@ function start() {
 			square_am_signal(time, freq);
 		}
 	}
+
+	close(); // Close Web Worker
 }
 
 function pause(time) {
-	window.logs.value += "\nPaused / " + time*.001 + " seconds";
+	postMessage("\nPaused / " + time*.001 + " seconds");
 	var dt = new Date();
 	while ((new Date()) - dt <= time) { /* Do nothing */ }
 }
+
+onmessage = function(event) {
+	var data = event.data;
+	play(data);
+};
