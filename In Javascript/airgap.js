@@ -1,48 +1,25 @@
-//Credits to https://github.com/fulldecent/system-bus-radio
-//As well as Jordan Harband for the nodejs simd library
-//Tested to be working on Chrome at 1560khz
+var player; // Define "player" var to make my code linter happy
 
-function now() {
-	return window.performance.now() * 1000000;
-}
+function start() { // Start Web Worker & send song data to player
+	var logs = document.getElementById('logs'); // Define log element
 
-var NSEC_PER_SEC = 1000000000;
-var register = 3.1415;
-var logs = document.getElementById('logs');
+	// Create Web Worker if it doesn't already exist
+	if (window.Worker && typeof(player) == "undefined") {
+		var player = new Worker("worker.js");
+		window.player = player; // Make variable Global
+		player.onmessage = function(event) {
+			var data = event.data;
+			window.logs.value += data;
+		};
 
-function square_am_signal(time, freq) {
-	window.logs.value += "\nPlaying / " + time + " seconds / " + freq + "Hz";
-	var period = NSEC_PER_SEC / freq;
-	var start = now();
-	var end = now() + time * NSEC_PER_SEC;
-	while (now() < end) {
-		var mid = start + period / 2;
-		var reset = start + period;
-		while (now() < mid) {
-			for (var i = 0; i < 100; i++) {
-				register = 1 - Math.log(register) / 1.7193;
-			}
-		}
-		while (now() < reset) {}
-		start = reset;
+		// Send song data to player
+		var song = document.getElementById("tones").innerHTML;
+		player.postMessage(song);
 	}
 }
 
-function start() {
-	var song = document.getElementById("tones").value.split("\n");
-	var length = song.length;
-	var line, time, freq;
-	for (var i = 0; i < length; i++) {
-		line = song[i].split(" ");
-		if (+line[1] == 0) {
-			pause(line[0]);
-		}
-		else {
-			freq = +line[1];
-			time = (+line[0])*.001;
-			square_am_signal(time, freq);
-		}
-	}
+function end() { // Stops the Web Worker
+	player.terminate();
 }
 
 function pause(time) {
