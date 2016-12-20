@@ -1,6 +1,6 @@
 System Bus Radio
 ==================
-This program transmits radio on computers without radio transmitting hardware.
+This program transmits radio on computers / phones without radio transmitting hardware.
 
 Why?
 ------------------
@@ -8,8 +8,10 @@ Some computers are intentionally disconnected from the rest of the world. This i
 
 Publicly available documents already discuss exfiltration from secured systems using various electromagnetic radiations. This is documented in the TEMPEST guidelines published by the US National Security Agency and the US Department of Defense. This project simply adds to that discussion.
 
-How to Use It
+How to use it
 ------------------
+**NEW:** Try it without compiling anything, click here: https://cdn.rawgit.com/fulldecent/system-bus-radio/master/In%20Javascript/airgap.html
+
 Enter the `Using _mm_stream_si128` folder and compile using `make`. (There are also other flavors you can `make` and try in different folders!)
 
     make
@@ -18,7 +20,7 @@ Run this using a 2015 model MacBook Air. Then use a Sony STR-K670P radio receive
 
 You should hear the "Mary Had a Little Lamb" tune playing repeatedly. Other equipment and tuning may work as well. On the equipment above, the author has achieved clear transmission over two meters of open air or one meter through drywall. Different results will be achievable with different equipment.
 
-Are you using an antenna? At the beginning, I placed the antenna directly on top of the number 4 key and that worked best. It was a round antenna. Then once I knew it works I moved the antenna back. Moving it back reduced the number of frequencies that it worked on, and eventually only that one (1580 kHz) worked. Different hardware will certainly have different frequency response. Here are some results that have been sent in by readers. Please mail sbr@phor.net with your results (including make and model of all equipment involved) or [edit this file directly](https://github.com/fulldecent/system-bus-radio/edit/master/TEST-DATA.tsv) and create a pull request.
+Are you using an antenna? At the beginning, I placed the antenna directly on top of the number 4 key and that worked best (on any AM frequency). It was a round antenna. Then once I knew it works I moved the antenna back. Moving it back reduced the number of frequencies that it worked on, and eventually only that one (1580 kHz) worked. Different hardware will certainly have different frequency response. Here are some results that have been sent in by readers. Please mail github.com@phor.net with your results (including make and model of all equipment involved) or [edit this file directly](https://github.com/fulldecent/system-bus-radio/edit/master/TEST-DATA.tsv) and create a pull request.
 
 Technical Explanation
 ------------------
