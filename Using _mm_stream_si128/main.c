@@ -6,11 +6,11 @@
 #include <emmintrin.h>
 #include <inttypes.h>
 #include <time.h>
+#include <math.h>
 #ifdef __MACH__
 #include <mach/mach_traps.h>
 #include <mach/mach_time.h>
 #endif
-#include <math.h>
 
 #ifndef NSEC_PER_SEC
 #define NSEC_PER_SEC 1000000000ull
@@ -69,7 +69,7 @@ static inline void square_am_signal(float time, float frequency) {
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 #ifdef __MACH__
     mach_timebase_info_data_t theTimeBaseInfo;
@@ -85,32 +85,24 @@ int main()
     reg_zero = _mm_set_epi32(0, 0, 0, 0);
     reg_one = _mm_set_epi32(-1, -1, -1, -1);
 
+    FILE* fp;
+    if (argc == 2) {
+        fp = fopen(argv[1], "r");
+    } else {
+        printf("No song file given!\nUsage: %s file.song\n", argv[0]);
+        exit(1);
+    }
+
+    char buffer[20] = {0};
+    int time_ms;
+    int freq_hz;
     while (1) {
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2093);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.790, 2673);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.790, 2349);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 3136);
-        square_am_signal(0.790, 3136);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2093);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.400, 2673);
-        square_am_signal(0.400, 2349);
-        square_am_signal(0.790, 2093);
+        fgets(buffer, 20 - 1, fp);
+        if (sscanf(buffer, "%d %d",  &time_ms, &freq_hz) == 2) {
+            square_am_signal(1.0 * time_ms / 1000, freq_hz);
+        }
+        if (feof(fp)) {
+            rewind(fp);
+        }
     }
 }
