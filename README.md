@@ -10,7 +10,7 @@ Publicly available documents already discuss exfiltration from secured systems u
 
 How to use it
 ------------------
-**NEW:** Try it without compiling anything, click here: https://cdn.rawgit.com/fulldecent/system-bus-radio/master/In%20Javascript/airgap.html
+**NEW:** Try it without compiling anything, click here: http://fulldecent.github.io/system-bus-radio/
 
 Enter the `Using _mm_stream_si128` folder and compile using `make`. (There are also other flavors you can `make` and try in different folders!)
 
