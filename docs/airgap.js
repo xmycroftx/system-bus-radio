@@ -1,7 +1,9 @@
 var player; // Define "player" var to make my code linter happy
 
 function start() { // Start Web Worker & send song data to player
-	var logs = document.getElementById('logs'); // Define log element
+	var logs = document.getElementById('progress'); // Define log element
+	window.logs = logs; // Make variable Global
+	window.logs.value = "";
 
 	// Create Web Worker if it doesn't already exist
 	if (window.Worker && typeof(player) == "undefined") {
@@ -9,21 +11,17 @@ function start() { // Start Web Worker & send song data to player
 		window.player = player; // Make variable Global
 		player.onmessage = function(event) {
 			var data = event.data;
-			window.logs.value += data;
+			console.log(data)
+			window.logs.value += "x\n";
 		};
 
 		// Send song data to player
-		var song = document.getElementById("tones").innerHTML;
+		var song = document.getElementById("tune").innerHTML;
 		player.postMessage(song);
 	}
 }
 
 function end() { // Stops the Web Worker
+	window.logs.value = "";
 	player.terminate();
-}
-
-function pause(time) {
-	window.logs.value += "\nPaused / " + time*.001 + " seconds";
-	var dt = new Date();
-	while ((new Date()) - dt <= time) { /* Do nothing */ }
 }
