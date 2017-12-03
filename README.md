@@ -2,6 +2,8 @@ System Bus Radio
 ==================
 This program transmits radio on computers / phones without radio transmitting hardware.
 
+**:wine_glass: Project tip jar: https://amazon.com/hz/wishlist/ls/EE78A23EEGQB**
+
 Why?
 ------------------
 Some computers are intentionally disconnected from the rest of the world. This includes having their internet, wireless, bluetooth, USB, external file storage and audio capabilities removed. This is called "air gapping". Even in such a situation, this program can transmit radio.
