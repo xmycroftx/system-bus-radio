@@ -95,9 +95,9 @@ for ( int i = 0; i < filelen + 1; i++) {
     for ( int b =0; b < 7; b++) {
     bitnow = (buffer[i] & ( 1 << b )) >> b ;
     if(bitnow == 1) 
-        freq_hz = 1200;
-    else
         freq_hz = 2200;
+    else
+        freq_hz = 1200;
     if(enc == 1) {
         square_am_signal(1.0 * time_ms / 1000, freq_hz);
         }
