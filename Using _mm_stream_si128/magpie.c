@@ -122,7 +122,7 @@ int
 main(int argc, char *argv[ ])
 {
     int c;
-    int tflg=-1, eflg=-1, errflg = 0;
+    int tflg=0, eflg=0, errflg = 0;
     char *file = NULL;
     int loops=1;
     //char *loops;
@@ -165,12 +165,11 @@ main(int argc, char *argv[ ])
             exit(0);
         }
     }
-    if (file == NULL){
-        fprintf(stderr, "missing -f filename\n");
+    if (file == NULL)
         errflg++;
-    }
+    
     if (errflg) {
-        fprintf(stderr, "usage: %s [-t|e] [-c loops] -f fname\n",argv[0]);
+        fprintf(stderr, "usage: %s [-m|a] [-l loops] -f fname\n",argv[0]);
         exit(2);
     }
 //printf("infile: %s loops:%i tflag:%i eflag:%i\n" ,file, loops,tflg,eflg);
