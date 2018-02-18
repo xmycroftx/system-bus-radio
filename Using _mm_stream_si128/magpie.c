@@ -67,7 +67,14 @@ static inline void square_am_signal(float time, float frequency) {
         start = reset;
     }
 }
-
+static inline void showhelp(char *argv[]){
+            fprintf(stderr, "usage: %s [-m|a] [-l loops] -f fname\n",argv[0]);
+            fprintf(stderr, "magpie - an AM-FSK file transmitter in the 1500khzrange\n\n Uses PWM of square waves to generate AM-AFSK transmission of a file \n\nbased on SBR by William Entriken:https://github.com/fulldecent\n\n");
+            char uc[] = "  -l|loops [int] \t loops sets the number of times the data is transmitted. \n  -f [filename] \t the file specified in filename is read and transmitted\n";
+            fprintf(stderr,uc);
+            char uc2[] = "  -m\t\t\t uses (3)FSK repeat per bit with a FC/FC+300hz/FC+450hz encoding\n  -a\t\t\t uses AFSK encoding (0=1200hz, 1=2200hz)\n\n";
+            fprintf(stderr,uc2);
+}
 static inline void fileplayer(char *file, int loops, int enc){
 FILE *fileptr;
 char *buffer;
@@ -83,21 +90,21 @@ buffer = (char *)malloc((filelen+1)*sizeof(char)); // Enough memory for file + \
 fread(buffer, filelen, 1, fileptr); // Read in the entire file
 fclose(fileptr); // Close the file
 char bitnow=0;
-int i;
-int b;
 
 int time_ms=200;
 int freq_hz;
 
+int i,b;
 for ( int j = 0; j < loops; j ++){
+
 for ( int i = 0; i < filelen + 1; i++) {
     printf("byte #%d\n",i);
     for ( int b =0; b < 7; b++) {
     bitnow = (buffer[i] & ( 1 << b )) >> b ;
     if(bitnow == 1) 
-        freq_hz = 2200;
-    else
         freq_hz = 1200;
+    else
+        freq_hz = 2200;
     if(enc == 1) {
         square_am_signal(1.0 * time_ms / 1000, freq_hz);
         }
@@ -115,7 +122,7 @@ int
 main(int argc, char *argv[ ])
 {
     int c;
-    int tflg, eflg, errflg = 0;
+    int tflg=-1, eflg=-1, errflg = 0;
     char *file;
     int loops=1;
     //char *loops;
@@ -123,6 +130,9 @@ main(int argc, char *argv[ ])
     extern int optind, optopt;
     while ((c = getopt(argc, argv, ":hmaf:l:")) != -1) {
         switch(c) {
+        case 'h':
+            showhelp(argv);
+            exit(0);
         case 'm':
             if (eflg){
                 errflg++;
@@ -150,14 +160,8 @@ main(int argc, char *argv[ ])
                             "Option -%c requires an operand\n", optopt);
                     errflg++;
                     break;
-        
         case '?':
-            fprintf(stderr, "usage: %s [-m|a] [-l loops] -f fname\n",argv[0]);
-            fprintf(stderr, "magpie - an AM-FSK file transmitter in the 1500khzrange\n\n Uses PWM of square waves to generate AM-AFSK transmission of a file \n\nbased on SBR by William Entriken:https://github.com/fulldecent\n\n");
-            char uc[] = "  -l|loops\t\t loops sets the number of times the data is transmitted. \n  -f [filename] \t the file specified in filename is read and transmitted as alternating 1s (2200hz) and 0s (1200hz).\n";
-            fprintf(stderr,uc);
-            char uc2[] = "  -m\t\t\t uses (3)FSK repeat per bit with a FC/FC+300hz/FC+450hz encoding\n  -a\t\t\t uses AFSK encoding\n\n";
-            fprintf(stderr,uc2);
+            showhelp(argv);
             exit(0);
         }
     }
@@ -165,7 +169,7 @@ main(int argc, char *argv[ ])
         fprintf(stderr, "usage: %s [-t|e] [-c loops] -f fname\n",argv[0]);
         exit(2);
     }
-printf("infile: %s loops:%i tflag:%i eflag:%i\n" ,file, loops,tflg,eflg);
+//printf("infile: %s loops:%i tflag:%i eflag:%i\n" ,file, loops,tflg,eflg);
 //Setup below
 
 #ifdef __MACH__
