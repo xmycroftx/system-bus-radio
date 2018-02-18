@@ -1,7 +1,7 @@
 // SYSTEM BUS RADIO
 // https://github.com/fulldecent/system-bus-radio
 // Copyright 2016 William Entriken
-
+#include <unistd.h>
 #include <stdio.h>
 #include <emmintrin.h>
 #include <inttypes.h>
@@ -89,7 +89,12 @@ int main(int argc, char* argv[])
 
     FILE* fp;
     if (argc == 2) {
-        fp = fopen(argv[1], "r");
+        if( access( argv[1], F_OK ) != -1 ) {
+            fp = fopen(argv[1], "r");
+            } else {
+                printf("Tonefile not found!\n");
+                exit(1);
+                }
     } else {
         printf("No tune file given!\nUsage: %s file.tune\n", argv[0]);
         exit(1);
