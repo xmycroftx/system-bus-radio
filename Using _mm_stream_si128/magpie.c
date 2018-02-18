@@ -123,7 +123,7 @@ main(int argc, char *argv[ ])
 {
     int c;
     int tflg=-1, eflg=-1, errflg = 0;
-    char *file;
+    char *file = NULL;
     int loops=1;
     //char *loops;
     extern char *optarg;
@@ -165,6 +165,9 @@ main(int argc, char *argv[ ])
             exit(0);
         }
     }
+    if (file == NULL)
+        fprintf(stderr, "missing -f filename\n");
+        errflg++;
     if (errflg) {
         fprintf(stderr, "usage: %s [-t|e] [-c loops] -f fname\n",argv[0]);
         exit(2);
