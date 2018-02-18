@@ -165,9 +165,10 @@ main(int argc, char *argv[ ])
             exit(0);
         }
     }
-    if (file == NULL)
+    if (file == NULL){
         fprintf(stderr, "missing -f filename\n");
         errflg++;
+    }
     if (errflg) {
         fprintf(stderr, "usage: %s [-t|e] [-c loops] -f fname\n",argv[0]);
         exit(2);
