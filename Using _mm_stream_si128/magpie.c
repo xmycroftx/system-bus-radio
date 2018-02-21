@@ -68,11 +68,14 @@ static inline void square_am_signal(float time, float frequency) {
     }
 }
 static inline void showhelp(char *argv[]){
-            fprintf(stderr, "usage: %s [-m|a] [-l loops] -f fname\n",argv[0]);
-            fprintf(stderr, "magpie - an AM-FSK file transmitter in the 1500khzrange\n\n Uses PWM of square waves to generate AM-AFSK transmission of a file \n\nbased on SBR by William Entriken:https://github.com/fulldecent\n\n");
-            char uc[] = "  -l|loops [int] \t loops sets the number of times the data is transmitted. \n  -f [filename] \t the file specified in filename is read and transmitted\n";
+            fprintf(stderr, "usage: %s [-m|a|h] [-l loops] -f fname\n",argv[0]);
+            fprintf(stderr, "magpie - an AM-FSK file transmitter in the 1500khzrange\n\n Uses PWM of square waves to generate AM-FSK transmission of a file \n\nbased on SBR by William Entriken:https://github.com/fulldecent\n\n");
+            fprintf(stderr," Required:\n");
+            fprintf(stderr,"  -f [filename] \t the file specified in filename is read and transmitted\n");
+            fprintf(stderr,"\n Optional:\n");
+            char uc[] = "  -l [int] \t\t loops sets the number of times the data is transmitted. \n";
             fprintf(stderr,"%s",uc);
-            char uc2[] = "  -m\t\t\t uses (3)FSK repeat per bit with a FC/FC+300hz/FC+450hz encoding\n  -a\t\t\t uses AFSK encoding (0=1200hz, 1=2200hz)\n\n";
+            char uc2[] = "  -m\t\t\t uses 8FSK encoding.\n  -a \t\t\t uses AFSK encoding (0=1200hz, 1=2200hz) (Default)\n\n";
             fprintf(stderr,"%s",uc2);
 }
 
@@ -234,7 +237,7 @@ main(int argc, char *argv[ ])
         errflg++;
     
     if (errflg) {
-        fprintf(stderr, "usage: %s [-m|a] [-l loops] -f fname\n",argv[0]);
+        fprintf(stderr, "usage: %s [-m|a|h] [-l loops] -f fname\n",argv[0]);
         exit(2);
     }
 //Setup below
