@@ -103,25 +103,25 @@ static inline void mfsknib(char nib, int time_ms){
         int freq=0;
         switch(nib){
         case 0:
-        freq=200;
-        break;
-        case 1:
         freq=200*2;
         break;
-        case 2:
+        case 1:
         freq=200*3;
         break;
-        case 3:
+        case 2:
         freq=200*5;
         break;
-        case 4:
+        case 3:
         freq=200*7;
         break;
-        case 5:
+        case 4:
         freq=200*11;
         break;
-        case 6:
+        case 5:
         freq=200*13;
+        break;
+        case 6:
+        freq=200*17;
         break;
         case 7:
         freq=200*19;
