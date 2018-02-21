@@ -174,7 +174,7 @@ for ( int i = 0; i < filelen + 1; i++) {
     else {
             //rolling 3 bit windows, used to determine 8FSK frequency.
             mb_2 = bitnow & 1;
-            char nib = makenib(mb_0, mb_1, mb_2);
+            char nib = makenib(mb_2, mb_1, mb_0);
             mfsknib(nib, time_ms);
             mb_0=mb_1 & 1;
             mb_1=mb_2 & 1;
