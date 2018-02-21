@@ -165,11 +165,11 @@ for ( int i = 0; i < filelen + 1; i++) {
     bitnow = (buffer[i] & ( 1 << b )) >> b ;
     
     if (enc == 1){
-            afskbit(bitnow, time_ms); 
-            if( i  %  2 == 0 ){
-                //preamble every 16 bits
+        if( i  %  2 == 0 ){
+                //preamble (0110) every 16 bits
                 preamble();
             }
+        afskbit(bitnow, time_ms); 
     }
     else {
             //rolling 3 bit windows, used to determine 8FSK frequency.
