@@ -152,9 +152,7 @@ fclose(fileptr); // Close the file
 char bitnow=0;
 
 int time_ms=200;
-//int freq_hz;
 
-//int i,b;
 for ( int j = 0; j < loops; j ++){
 for ( int i = 0; i < filelen + 1; i++) {
     char mb_0=0;
